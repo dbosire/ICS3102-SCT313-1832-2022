@@ -1,0 +1,58 @@
+@prefix cc: <http://example.com/climate-change#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+cc:ClimateChange a owl:Ontology ;
+    rdfs:label "Climate Change Ontology" ;
+    owl:imports owl:Thing .
+
+cc:GreenhouseGas a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+cc:Mitigation a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+cc:Adaptation a owl:Class ;
+    rdfs:subClassOf owl:Thing .
+
+cc:hasGHG a owl:ObjectProperty ;
+    rdfs:domain cc:ClimateChange ;
+    rdfs:range cc:GreenhouseGas .
+
+cc:hasMitigation a owl:ObjectProperty ;
+    rdfs:domain cc:ClimateChange ;
+    rdfs:range cc:Mitigation .
+
+cc:hasAdaptation a owl:ObjectProperty ;
+    rdfs:domain cc:ClimateChange ;
+    rdfs:range cc:Adaptation .
+
+cc:CO2 a owl:NamedIndividual , cc:GreenhouseGas .
+
+cc:SolarEnergy a owl:NamedIndividual , cc:Mitigation .
+
+cc:Geoengineering a owl:NamedIndividual , cc:Adaptation .
+
+[ a owl:ClassAssertion ;
+    owl:class cc:GreenhouseGas ;
+    owl:individual cc:CO2
+] .
+
+[ a owl:ObjectPropertyAssertion ;
+    owl:objectProperty cc:hasGHG ;
+    owl:sourceIndividual cc:ClimateChange ;
+    owl:targetIndividual cc:CO2
+] .
+
+[ a owl:ObjectPropertyAssertion ;
+    owl:objectProperty cc:hasMitigation ;
+    owl:sourceIndividual cc:ClimateChange ;
+    owl:targetIndividual cc:SolarEnergy
+] .
+
+[ a owl:ObjectPropertyAssertion ;
+    owl:objectProperty cc:hasAdaptation ;
+    owl:sourceIndividual cc:ClimateChange ;
+    owl:targetIndividual cc:Geoengineering
+] .

@@ -1,0 +1,20 @@
+{
+  "name": "ontology",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@rdfjs/fetch": "^3.1.0",
+    "express": "^4.18.2",
+    "rdf-ext": "^2.1.1",
+    "rdf-utils-fs": "^2.3.0",
+    "rdflib": "^2.2.21",
+    "sparql-http-client": "^2.4.2",
+    "tbbt-ld": "^1.1.0"
+  }
+}
